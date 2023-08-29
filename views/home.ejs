@@ -1,0 +1,27 @@
+<%- include("partials/header.ejs") %>
+
+<!-- if i am in home the it's good and if i am in work the send the data to /work -->
+<form action="/" method="post" id="formID">
+    <input type="text" name="task" id="tasks" placeholder="New Item" autocomplete="off" required>
+    <input type="submit" id="addButton" value="+">
+</form> 
+
+</div>
+
+<div class="whiteBoard">
+<% if (locals.tasks) { %>
+    
+    <table>
+        <% locals.tasks.forEach((task) => { %>
+        <div class="listItem">
+            <form action="/" method="post">
+                <input type="checkbox" class="myCheckbox" name="checkbox">
+                <label class="strikethrough"> <%=task%></label>
+            </form>
+        </div>
+        <% })  %>
+    </table>
+<% } %>
+</div>
+
+<%- include("partials/footer.ejs") %>
